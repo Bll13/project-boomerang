@@ -6,7 +6,11 @@ const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 // const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
-
+var readlineSync = require('readline-sync');
+ 
+// Wait for user's response.
+const userName = readlineSync.question('What is your name?');
+console.log('Hi ' + userName + '!');
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
 
