@@ -9,22 +9,22 @@ class Hero {
 
   moveLeft() {
     // Идём влево.
-    this.position[1] -= 1;
+    if (this.position[1] != 0) this.position[1] -= 1;
   }
 
   moveRight() {
     // Идём вправо.
-    this.position[1] += 1;
+    if (this.position[1] != 29) this.position[1] += 1;
   }
 
   moveUp() {
     // Идём вверх.
-    this.position[0] -= 1;
+    if (this.position[0] != 0) this.position[0] -= 1;
   }
 
   moveDown() {
     // Идём вниз.
-    this.position[0] += 1;
+    if (this.position[0] != 6) this.position[0] += 1;
   }
 
   attack() {

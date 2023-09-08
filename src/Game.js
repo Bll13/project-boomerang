@@ -53,56 +53,70 @@ class Game {
   check() {
     // Убийство врага
     if (
-      this.boomerang.position === this.enemy1.position ||
-      this.boomerang.position + 1 === this.enemy1.position
+      (this.hero.position[0] === 0 &&
+        this.boomerang.position === this.enemy1.position) ||
+      (this.hero.position[0] === 0 &&
+        this.boomerang.position + 1 === this.enemy1.position)
     ) {
       this.enemy1.die();
       this.boomerang.reverse = true;
       this.enemy1 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy2.position ||
-      this.boomerang.position + 1 === this.enemy2.position
+      (this.hero.position[0] === 1 &&
+        this.boomerang.position === this.enemy2.position) ||
+      (this.hero.position[0] === 1 &&
+        this.boomerang.position + 1 === this.enemy2.position)
     ) {
       this.enemy2.die();
       this.boomerang.reverse = true;
       this.enemy2 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy3.position ||
-      this.boomerang.position + 1 === this.enemy3.position
+      (this.hero.position[0] === 2 &&
+        this.boomerang.position === this.enemy3.position) ||
+      (this.hero.position[0] === 2 &&
+        this.boomerang.position + 1 === this.enemy3.position)
     ) {
       this.enemy3.die();
       this.boomerang.reverse = true;
       this.enemy3 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy4.position ||
-      this.boomerang.position + 1 === this.enemy4.position
+      (this.hero.position[0] === 3 &&
+        this.boomerang.position === this.enemy4.position) ||
+      (this.hero.position[0] === 3 &&
+        this.boomerang.position + 1 === this.enemy4.position)
     ) {
       this.enemy4.die();
       this.boomerang.reverse = true;
       this.enemy4 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy5.position ||
-      this.boomerang.position + 1 === this.enemy5.position
+      (this.hero.position[0] === 4 &&
+        this.boomerang.position === this.enemy5.position) ||
+      (this.hero.position[0] === 4 &&
+        this.boomerang.position + 1 === this.enemy5.position)
     ) {
       this.enemy5.die();
       this.boomerang.reverse = true;
       this.enemy5 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy6.position ||
-      this.boomerang.position + 1 === this.enemy6.position
+      (this.hero.position[0] === 5 &&
+        this.boomerang.position === this.enemy6.position) ||
+      (this.hero.position[0] === 5 &&
+        this.boomerang.position + 1 === this.enemy6.position)
     ) {
       this.enemy6.die();
       this.boomerang.reverse = true;
       this.enemy6 = new Enemy();
     }
     if (
-      this.boomerang.position === this.enemy7.position ||
-      this.boomerang.position + 1 === this.enemy7.position
+      (this.hero.position[0] === 6 &&
+        this.boomerang.position === this.enemy7.position) ||
+      (this.hero.position[0] === 6 &&
+        this.boomerang.position + 1 === this.enemy7.position)
     ) {
       this.enemy7.die();
       this.boomerang.reverse = true;
@@ -130,45 +144,31 @@ class Game {
       this.boomerang.fly();
     }
     // Враг дошел до конца строки
-    if (
-      this.enemy1.position === -1
-    ) {
+    if (this.enemy1.position === -1) {
       this.enemy1.die();
       this.enemy1 = new Enemy();
     }
-    if (
-      this.enemy2.position === -1
-    ) {
+    if (this.enemy2.position === -1) {
       this.enemy2.die();
       this.enemy2 = new Enemy();
     }
-    if (
-      this.enemy3.position === -1
-    ) {
+    if (this.enemy3.position === -1) {
       this.enemy3.die();
       this.enemy3 = new Enemy();
     }
-    if (
-      this.enemy4.position === -1
-    ) {
+    if (this.enemy4.position === -1) {
       this.enemy4.die();
       this.enemy4 = new Enemy();
     }
-    if (
-      this.enemy5.position === -1
-    ) {
+    if (this.enemy5.position === -1) {
       this.enemy5.die();
       this.enemy5 = new Enemy();
     }
-    if (
-      this.enemy6.position === -1
-    ) {
+    if (this.enemy6.position === -1) {
       this.enemy6.die();
       this.enemy6 = new Enemy();
     }
-    if (
-      this.enemy7.position === -1
-    ) {
+    if (this.enemy7.position === -1) {
       this.enemy7.die();
       this.enemy7 = new Enemy();
     }
