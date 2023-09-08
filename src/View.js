@@ -1,12 +1,14 @@
 // Сделаем отдельный класс для отображения игры в консоли.
 
 class View {
-  render() {
+  render(field) {
     const yourTeamName = 'Elbrus';
 
     // Тут всё рисуем.
     console.clear();
-    console.log(this.game.track.join(''));
+    for (let i = 0; i < 7; i++) {
+      console.log(field[i].join(''));
+    }
     console.log('\n\n');
     console.log(`Created by "${yourTeamName}" with love`);
   }
