@@ -2,13 +2,16 @@
 // Или можно не импортировать,
 // а передавать все нужные объекты прямо из run.js при инициализации new Game().
 
-const Hero = require('./game-models/Hero');
-const Enemy = require('./game-models/Enemy');
-const Boomerang = require('./game-models/Boomerang');
-const View = require('./View');
+const Hero = require("./game-models/Hero");
+const Enemy = require("./game-models/Enemy");
+const BoomerangOne = require("./game-models/Boomerang");
+const View = require("./View");
 
-const Controller = require('./Controller');
+const Controller = require("./Controller");
 
+const readlineSync = require("readline-sync");
+const { Boomerang } = require("../db/models");
+// Wait for user's response.
 
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
@@ -16,7 +19,7 @@ const Controller = require('./Controller');
 class Game {
   constructor({ trackLength }) {
     this.trackLength = trackLength;
-    this.boomerang = new Boomerang();
+    this.boomerang = new BoomerangOne();
     this.hero = new Hero(this.boomerang); // Герою можно аргументом передать бумеранг.
     this.enemy1 = new Enemy();
     this.enemy2 = new Enemy();
@@ -37,7 +40,7 @@ class Game {
     // в единую структуру данных
     this.field = new Array();
     for (let i = 0; i < 7; i++) {
-      this.track = new Array(this.trackLength).fill(' ');
+      this.track = new Array(this.trackLength).fill(" ");
       this.field.push(this.track);
     }
     this.field[this.hero.position[0]][this.hero.position[1]] = this.hero.skin;
@@ -188,7 +191,18 @@ class Game {
   }
 
   play() {
+    const userName = readlineSync.question("May I have your name? ");
+    console.log("Hi " + userName + "!");
+
+    async function name() {
+      await Boomerang.create({
+        Player: userName,
+        Scores: 12,
+      });
+    }
+    name();
     this.controller.runInteractiveConsole();
+
     setInterval(() => {
       // Let's play!
       this.check();
