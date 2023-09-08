@@ -16,7 +16,7 @@ class Controller {
   #keyboard = {
     space: () => {
       if (this.boomerang.position === -1) {
-        this.boomerang.position = this.hero.position + 1;
+        this.boomerang.position = this.hero.position[1] + 1;
         this.hero.attack(this.hero);
       }
     },
@@ -25,6 +25,12 @@ class Controller {
     },
     a: () => {
       this.hero.moveLeft();
+    },
+    w: () => {
+      this.hero.moveUp();
+    },
+    s: () => {
+      this.hero.moveDown();
     },
   };
 

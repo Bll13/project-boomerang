@@ -9,7 +9,7 @@ class Boomerang {
     this.reverse = false;
   }
 
-  fly(hero) {
+  fly() {
     this.reverse ? this.moveLeft() : this.moveRight();
   }
 
